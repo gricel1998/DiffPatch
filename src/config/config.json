@@ -1,0 +1,37 @@
+{
+    "diffusion_config": {
+        "T": 200, // 扩散步骤的总数
+        "beta_0": 0.0001, // 初始噪声比例
+        "beta_T": 0.02 // 最终噪声比例
+    },
+    "DiffPatch_config": { 
+        "in_channels": 14, // 输入通道数
+        "out_channels": 14, // 输出通道数
+        "num_res_layers": 36, // 残差层的数量
+        "res_channels": 256, // 残差层的通道数
+        "skip_channels": 256, // 跳跃连接的通道数
+        "diffusion_step_embed_dim_in": 128, // 扩散步骤嵌入输入维度
+        "diffusion_step_embed_dim_mid": 512, // 扩散步骤嵌入中间维度
+        "diffusion_step_embed_dim_out": 512, // 扩散步骤嵌入输出维度
+    },
+    "train_config": {
+        "output_directory": ".yourpath", // 输出目录
+        "ckpt_iter": "max", // 检查点迭代策略
+        "iters_per_ckpt": 100, // 每个检查点的迭代次数
+        "iters_per_logging": 100, // 每次日志记录的迭代次数
+        "n_iters": 150000, // 总迭代次数
+        "learning_rate": 2e-4, // 学习率
+        "masking": "rm", // 掩码策略
+        "missing_k": 30 // 缺失数据的比例
+    },
+    "trainset_config": {
+        "train_data_path": "./yourpath", // 训练数据路径
+        "test_data_path": "./yourpath", // 测试数据路径
+        "segment_length": 100, // 段长度
+        "sampling_rate": 100 // 采样率
+    },
+    "gen_config": {
+        "output_directory": "./yourpath", // 输出目录
+        "ckpt_path": "./yourpath" // 检查点路径
+    }
+}
